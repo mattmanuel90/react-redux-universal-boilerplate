@@ -1,5 +1,4 @@
 import path from 'path';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const paths = {
@@ -8,8 +7,9 @@ const paths = {
   DIST: path.resolve(__dirname, 'build/public')
 };
 
-module.exports = [
-  {
+
+module.exports = () => {
+  const webpackConfig = {
     entry: path.join(paths.JS, 'app.js'),
     output: {
       path: paths.DIST,
@@ -31,11 +31,11 @@ module.exports = [
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(paths.SRC, 'index.html')
-      }),
-      new BundleAnalyzerPlugin({ openAnalyzer: false })
+      })
     ],
     resolve: {
       extensions: ['.js', '.jsx', 'json'],
     },
-  }
-];
+  };
+  return webpackConfig;
+};

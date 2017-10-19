@@ -1,8 +1,6 @@
 import path from 'path';
-import fs from 'fs';
-import webpack from 'webpack';
 
-module.exports = (env) => { 
+module.exports = () => {
   const webpackConfig = {
     target: 'node',
     node: {
@@ -22,13 +20,7 @@ module.exports = (env) => {
           use: ['babel-loader']
         }
       ]
-    },
-    resolve: {
-      extensions: ['.js', '.jsx'],
-      modules: [
-        'node_modules', __dirname
-      ]
-    },
+    }
   };
   return webpackConfig;
-}
+};
