@@ -1,7 +1,6 @@
 import path from 'path';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
 const paths = {
   SRC: path.resolve(__dirname, 'client'),
   JS: path.resolve(__dirname, 'client/js'),

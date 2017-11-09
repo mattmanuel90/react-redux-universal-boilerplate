@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { configureStore }from './store';
+import { createBrowserHistory } from 'history';
+import Root from './containers/Root';
 
-export default class Hello extends Component {
-  render() {
-    return (
-      <div>
-        Hello from react
-      </div>
-    );
-  }
-}
+//manage store on the app level
+const store = configureStore();
+const history = createBrowserHistory();
 
-render(<Hello />, document.getElementById('app'));
+//essential reading
+// https://gaearon.github.io/react-hot-loader/getstarted/#step-2-of-3-using-hmr-to-replace-the-root-component
+// http://redux.js.org/docs/advanced/UsageWithReactRouter.html
+render(<Root store={store} history={history} />, document.getElementById('app'));
